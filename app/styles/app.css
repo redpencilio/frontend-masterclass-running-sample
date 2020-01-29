@@ -12,3 +12,7 @@ nav {
   padding: 10px;
   background-color: lightgrey;
 }
+
+.offers-table button {
+  margin-left: 5px;
+}
