@@ -1,0 +1,20 @@
+<h2>Offers</h2>
+
+<table>
+  <thead>
+    <th>Book</th>
+    <th>Availability</th>
+  </thead>
+  <tbody>
+    {{#each @model as |offer|}}
+      <tr>
+        <td>{{offer.book.title}}</td>
+        <td>{{offer.availability}}</td>
+      </tr>
+    {{else}}
+      <tr><td colspan="2">No offers</td></tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{outlet}}

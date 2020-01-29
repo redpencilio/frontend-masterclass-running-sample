@@ -6,11 +6,17 @@
   {{/each}}
 </div>
 
-{{#if this.currentAccount}}
-  <h4>You're currently logged in as {{this.currentAccount.name}} ({{this.currentAccount.description}})</h4>
+{{#if this.currentSession.currentAccount}}
+  <h4>You're currently logged in as {{this.currentSession.currentAccount.name}} ({{this.currentSession.currentAccount.description}})</h4>
   <button type="button" {{on "click" this.logout}}>Logout</button>
 {{else}}
   <h4>You're not logged in</h4>
 {{/if}}
-<button type="button" {{on "click" this.refreshSession}}>Refresh session</button>
+
+<nav>
+  Go to
+  {{#link-to "books"}}[ Books ]{{/link-to}}
+  {{#link-to "offers"}}[ Offers ]{{/link-to}}
+  {{#link-to "projects"}}[ Projects ]{{/link-to}}
+</nav>
 {{outlet}}

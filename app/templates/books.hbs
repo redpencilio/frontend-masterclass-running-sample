@@ -1,0 +1,22 @@
+<h2>Books</h2>
+
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Authors</th>
+    <th>ISBN</th>
+  </thead>
+  <tbody>
+    {{#each @model as |book|}}
+      <tr>
+        <td>{{book.title}}</td>
+        <td>{{join ", " (map-by "name" book.authors)}}</td>
+        <td>{{book.isbn}}</td>
+      </tr>
+    {{else}}
+      <tr><td colspan="3">No books</td></tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{outlet}}
