@@ -1,5 +1,16 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<h1>Login</h1>
 
+<div class="account-list">
+  {{#each @model as |account|}}
+    <div class="account-item"><button type="button" disabled={{this.isLoginDisabled}} {{on "click" (fn this.login account)}}>Login</button> {{account.name}}: {{account.description}} </div>
+  {{/each}}
+</div>
+
+{{#if this.currentAccount}}
+  <h4>You're currently logged in as {{this.currentAccount.name}} ({{this.currentAccount.description}})</h4>
+  <button type="button" {{on "click" this.logout}}>Logout</button>
+{{else}}
+  <h4>You're not logged in</h4>
+{{/if}}
+<button type="button" {{on "click" this.refreshSession}}>Refresh session</button>
 {{outlet}}
